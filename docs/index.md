@@ -22,16 +22,16 @@ leak future market regimes into training.
 | Naive `-ret_15m` baseline | 10 chronological chunks | 0.023366 |
 | Rolling global ridge | Expanding walk-forward folds 3-9 | 0.031154 |
 | Enhanced global ridge | Cross-asset expanding walk-forward folds 3-9 | 0.044532 |
-| Global MLP with asset embeddings | Verified startup; full scoring needs GPU | not fully scored |
+| Global MLP with asset embeddings | RTX 4090 GPU walk-forward folds 6-9 | 0.051753 |
 
-The enhanced ridge model improves mean correlation by `0.018121` over its
-same-fold naive baseline. The signal is small, which is normal for noisy
-financial forecasting tasks, but the walk-forward lift is consistent enough to
-be worth further modeling.
+The global MLP is now the best completed model, improving mean correlation by
+`0.031801` over its same-fold naive baseline. The signal is small, which is
+normal for noisy financial forecasting tasks, but the walk-forward lift is
+consistent enough to be worth further modeling.
 
 The MLP implementation is included in `rolling_mlp_global.py`. It builds the
-full feature matrix and starts training on CPU, but the complete 24-million-row
-walk-forward run is intended for a CUDA/GPU environment.
+full feature matrix, uses learned asset embeddings, and trains on CUDA when a
+GPU is available.
 
 ## Reproduce
 
