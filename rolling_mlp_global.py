@@ -337,8 +337,11 @@ def train_one_fold(train, valid, feature_cols, fold_id):
         train_ds,
         batch_size=BATCH_SIZE,
         shuffle=True,
-        num_workers=2,
-        pin_memory=True,
+        # Multiprocessing workers can be blocked in restricted notebook/sandbox
+        # environments. CUDA runs benefit from workers and pinned memory; CPU
+        # runs stay single-process for portability.
+        num_workers=2 if DEVICE == "cuda" else 0,
+        pin_memory=DEVICE == "cuda",
     )
 
     model = MLP(len(feature_cols)).to(DEVICE)
