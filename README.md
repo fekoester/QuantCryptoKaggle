@@ -21,7 +21,7 @@ MLP run was completed on an RTX 4090 GPU.
 | Enhanced global ridge | `0.044532` | Market, BTC/ETH, and asset-interaction factors |
 | Global MLP | `0.051753` | RTX 4090 GPU run, folds 6-9 |
 
-Best completed model: **global MLP**, with a mean lift of `0.031801` over its
+Best completed model: **global MLP**, with a mean lift of `0.028387` over its
 same-fold naive baseline.
 
 ## The MLP
