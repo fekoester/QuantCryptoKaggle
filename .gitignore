@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments
+.venv/
+venv/
+env/
+
+# Kaggle data and generated artifacts
+raw/
+data/
+models/
+outputs/
+*.zip
+*.parquet
+*.feather
+*.pkl
+*.pt
+*.pth
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS / editor noise
+.DS_Store
+.idea/
+.vscode/
+
